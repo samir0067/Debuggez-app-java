@@ -1,8 +1,7 @@
 package com.hemebiotech;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.List;
 
 public class AnalyticsCounter {
 	private static final int headacheCount = 0;
@@ -10,32 +9,35 @@ public class AnalyticsCounter {
 	private static int pupilCount = 0;
 	
 	public static void main(String args[]) throws Exception {
+		ISymptomReader symptomReader = new SymptomReaderImpl();
 
-		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
-		String line = reader.readLine();
+		List<String> symptomsList = symptomReader.getSymptoms("symptoms.txt");
+		StringBuffer buffer = new StringBuffer();
+		symptomsList.forEach(buffer::append);
 
-		int i = 0;
-		int headCount = 0;
-		while (line != null) {
-			i++;
-			System.out.println("symptom from file: " + line);
-			if (line.equals("headache")) {
-				headCount++;
-				System.out.println("number of headaches: " + headCount);
-			}
-			else if (line.equals("rush")) {
-				rashCount++;
-			}
-			else if (line.contains("pupils")) {
-				pupilCount++;
-			}
-			line = reader.readLine();
-		}
+		System.out.println(buffer.toString());
 
 		FileWriter writer = new FileWriter ("result.out");
 		writer.write("headache: " + headacheCount + "\n");
 		writer.write("rash: " + rashCount + "\n");
 		writer.write("dilated pupils: " + pupilCount + "\n");
 		writer.close();
+//		int i = 0;
+//		int headCount = 0;
+//		while (line != null) {
+//			i++;
+//			System.out.println("symptom from file: " + line);
+//			if (line.equals("headache")) {
+//				headCount++;
+//				System.out.println("number of headaches: " + headCount);
+//			}
+//			else if (line.equals("rush")) {
+//				rashCount++;
+//			}
+//			else if (line.contains("pupils")) {
+//				pupilCount++;
+//			}
+//			line = reader.readLine();
+//		}
 	}
 }

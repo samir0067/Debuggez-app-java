@@ -1,4 +1,4 @@
-package com.analytics;
+package com.hemebiotech;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -11,18 +11,9 @@ import java.util.List;
  */
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
-	private final String filepath;
-
-	/**
-	 * @param filepath a full or partial path to file with symptom strings in it, one per line
-	 */
-	public ReadSymptomDataFromFile (String filepath) {
-		this.filepath = filepath;
-	}
-
 	@Override
-	public List<String> GetSymptoms() {
-		ArrayList<String> result = new ArrayList<String>();
+	public List<String> getSymptoms(String filepath) {
+		ArrayList<String> result = new ArrayList<>();
 
 		if (filepath != null) {
 			try {
