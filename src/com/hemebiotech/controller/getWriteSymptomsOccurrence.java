@@ -29,6 +29,23 @@ public class getWriteSymptomsOccurrence {
     }
 
     /**
+     * convertir en Map d'occurrences
+     * @param symptomsList
+     * @return
+     */
+    private static Map<String, Integer> convertToOccurrenceMap(List<String> symptomsList) {
+        Map<String, Integer> occurrenceMap = new HashMap<>();
+        symptomsList.forEach(symptom -> {
+            if (occurrenceMap.containsKey(symptom)) {
+                occurrenceMap.put(symptom, occurrenceMap.get(symptom) + 1);
+            } else {
+                occurrenceMap.put(symptom, 1);
+            }
+        });
+        return occurrenceMap;
+    }
+
+    /**
      * obtenir la liste des symptômes
      * @param occurrenceMap
      * @return
@@ -37,27 +54,10 @@ public class getWriteSymptomsOccurrence {
         List<String> occurrenceSymptomList = occurrenceMap
                 .entrySet()
                 .stream()
-                .map(stringIntegerEntry -> stringIntegerEntry.getKey() + " = " + stringIntegerEntry.getValue())
+                .map(entry -> entry.getKey() + " = " + entry.getValue())
                 .collect(Collectors.toList());
-        occurrenceSymptomList.forEach(stringIntegerEntry -> System.out.println(stringIntegerEntry));
+        occurrenceSymptomList.forEach(entry -> System.out.println(entry));
         return occurrenceSymptomList;
-    }
-
-    /**
-     * convertir en carte d'occurrences
-     * @param symptomsList
-     * @return
-     */
-    private static Map<String, Integer> convertToOccurrenceMap(List<String> symptomsList) {
-        Map<String, Integer> occurrenceMap = new HashMap<>();
-        symptomsList.forEach(s -> {
-            if (occurrenceMap.containsKey(s)) {
-                occurrenceMap.put(s, occurrenceMap.get(s) + 1);
-            } else {
-                occurrenceMap.put(s, 1);
-            }
-        });
-        return occurrenceMap;
     }
 
     /**
@@ -67,9 +67,9 @@ public class getWriteSymptomsOccurrence {
      */
     private static void WriteOccurrenceFile(List<String> occurrenceSymptomList) throws IOException {
         FileWriter writer = new FileWriter("result.out");
-        occurrenceSymptomList.forEach(stringIntegerEntry -> {
+        occurrenceSymptomList.forEach(entry -> {
             try {
-                writer.write(stringIntegerEntry + "\n");
+                writer.write(entry + "\n");
             } catch (IOException e) {
                 e.printStackTrace();
             }

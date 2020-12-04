@@ -8,7 +8,9 @@ import com.hemebiotech.model.SymptomReaderImpl;
 public class AnalyticsCounter {
 
     public static void main(String[] args) throws Exception {
+
         ISymptomReader symptomReader = new ReadSymptomDataFromFile();
+
         getWriteSymptomsOccurrence.getAndWriteSymptomsOccurrence(symptomReader);
     }
 }
