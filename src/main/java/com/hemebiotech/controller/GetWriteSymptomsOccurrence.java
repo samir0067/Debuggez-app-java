@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 /**
  * obtenir Écrire Symptômes Occurrence
  */
-public class getWriteSymptomsOccurrence {
+public class GetWriteSymptomsOccurrence {
     /**
      * obtenir et écrire l'apparition des symptômes
      * @param symptomReader

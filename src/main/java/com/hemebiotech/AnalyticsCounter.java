@@ -1,16 +1,13 @@
 package com.hemebiotech;
 
-import com.hemebiotech.controller.getWriteSymptomsOccurrence;
+import com.hemebiotech.controller.GetWriteSymptomsOccurrence;
 import com.hemebiotech.model.ISymptomReader;
-import com.hemebiotech.model.ReadSymptomDataFromFile;
 import com.hemebiotech.model.SymptomReaderImpl;
 
 public class AnalyticsCounter {
-
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
 
         ISymptomReader symptomReader = new SymptomReaderImpl();
-
-        getWriteSymptomsOccurrence.getAndWriteSymptomsOccurrence(symptomReader);
+        GetWriteSymptomsOccurrence.getAndWriteSymptomsOccurrence(symptomReader);
     }
 }
