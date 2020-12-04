@@ -30,18 +30,6 @@ public class getWriteSymptomsOccurrence {
         return occurrenceSymptomList;
     }
 
-    private static void WriteOccurrenceFile(List<String> occurrenceSymptomList) throws IOException {
-        FileWriter writer = new FileWriter("result.out");
-        occurrenceSymptomList.forEach(stringIntegerEntry -> {
-            try {
-                writer.write(stringIntegerEntry + "\n");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
-        writer.close();
-    }
-
     private static Map<String, Integer> convertToOccurrenceMap(List<String> symptomsList) {
         Map<String, Integer> occurrenceMap = new HashMap<>();
         symptomsList.forEach(s -> {
@@ -52,5 +40,17 @@ public class getWriteSymptomsOccurrence {
             }
         });
         return occurrenceMap;
+    }
+
+    private static void WriteOccurrenceFile(List<String> occurrenceSymptomList) throws IOException {
+        FileWriter writer = new FileWriter("result.out");
+        occurrenceSymptomList.forEach(stringIntegerEntry -> {
+            try {
+                writer.write(stringIntegerEntry + "\n");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        writer.close();
     }
 }
