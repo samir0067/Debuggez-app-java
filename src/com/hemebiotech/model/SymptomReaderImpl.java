@@ -13,6 +13,10 @@ import java.util.stream.Collectors;
 
 public class SymptomReaderImpl implements ISymptomReader {
 
+    /**
+     * @param filepath
+     * @return
+     */
     @Override
     public List<String> getSymptoms(String filepath) {
         List<String> result = new ArrayList<>();
