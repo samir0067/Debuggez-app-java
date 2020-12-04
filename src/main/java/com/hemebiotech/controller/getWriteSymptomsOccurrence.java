@@ -18,7 +18,7 @@ public class getWriteSymptomsOccurrence {
      * @param symptomReader
      * @throws IOException
      */
-    public static void getAndWriteSymptomsOccurrence(ISymptomReader symptomReader) throws IOException {
+    public static void getAndWriteSymptomsOccurrence(ISymptomReader symptomReader) {
         List<String> symptomsList = symptomReader.getSymptoms("symptoms.txt");
 
         Map<String, Integer> occurrenceMap = convertToOccurrenceMap(symptomsList);
@@ -30,6 +30,7 @@ public class getWriteSymptomsOccurrence {
 
     /**
      * convertir en Map d'occurrences
+     *
      * @param symptomsList
      * @return
      */
@@ -47,6 +48,7 @@ public class getWriteSymptomsOccurrence {
 
     /**
      * obtenir la liste des symptômes
+     *
      * @param occurrenceMap
      * @return
      */
@@ -56,24 +58,26 @@ public class getWriteSymptomsOccurrence {
                 .stream()
                 .map(entry -> entry.getKey() + " = " + entry.getValue())
                 .collect(Collectors.toList());
-        occurrenceSymptomList.forEach(entry -> System.out.println(entry));
+//        occurrenceSymptomList.forEach(entry -> System.out.println(entry));
         return occurrenceSymptomList;
     }
 
     /**
      * Rédiger un fichier d'événement
+     *
      * @param occurrenceSymptomList
      * @throws IOException
      */
-    private static void WriteOccurrenceFile(List<String> occurrenceSymptomList) throws IOException {
-        FileWriter writer = new FileWriter("result.out");
-        occurrenceSymptomList.forEach(entry -> {
-            try {
+    private static void WriteOccurrenceFile(List<String> occurrenceSymptomList) {
+        try {
+            FileWriter writer = new FileWriter("result.out");
+            for (String entry : occurrenceSymptomList) {
                 writer.write(entry + "\n");
-            } catch (IOException e) {
-                e.printStackTrace();
             }
-        });
-        writer.close();
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }

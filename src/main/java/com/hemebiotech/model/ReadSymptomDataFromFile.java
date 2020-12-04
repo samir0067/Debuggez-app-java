@@ -17,12 +17,12 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
      */
     @Override
     public List<String> getSymptoms(String filepath) {
-        List<String> result = new ArrayList<>();
+        var result = new ArrayList<String>();
 
         if (filepath != null) {
             try {
-                BufferedReader reader = new BufferedReader(new FileReader(filepath));
-                String line = reader.readLine();
+                var reader = new BufferedReader(new FileReader(filepath));
+                var line = reader.readLine();
 
                 while (line != null) {
                     result.add(line);

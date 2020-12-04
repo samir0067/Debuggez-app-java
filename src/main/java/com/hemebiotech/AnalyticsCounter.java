@@ -9,7 +9,7 @@ public class AnalyticsCounter {
 
     public static void main(String[] args) throws Exception {
 
-        ISymptomReader symptomReader = new ReadSymptomDataFromFile();
+        ISymptomReader symptomReader = new SymptomReaderImpl();
 
         getWriteSymptomsOccurrence.getAndWriteSymptomsOccurrence(symptomReader);
     }
