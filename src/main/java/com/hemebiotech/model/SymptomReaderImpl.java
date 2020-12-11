@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
-public class SymptomReaderImpl implements ISymptomReader {
+public class SymptomReaderImpl implements SymptomReader {
 
 
     /**

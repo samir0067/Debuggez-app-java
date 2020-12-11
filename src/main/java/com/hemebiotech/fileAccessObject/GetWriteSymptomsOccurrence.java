@@ -1,6 +1,6 @@
-package com.hemebiotech.controller;
+package com.hemebiotech.fileAccessObject;
 
-import com.hemebiotech.model.ISymptomReader;
+import com.hemebiotech.model.SymptomReader;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -18,7 +18,7 @@ public class GetWriteSymptomsOccurrence {
      * @param symptomReader
      * @throws IOException
      */
-    public static void getAndWriteSymptomsOccurrence(ISymptomReader symptomReader) {
+    public static void getAndWriteSymptomsOccurrence(SymptomReader symptomReader) {
         List<String> symptomsList = symptomReader.getSymptoms("symptoms.txt");
 
         Map<String, Integer> occurrenceMap = convertToOccurrenceMap(symptomsList);
