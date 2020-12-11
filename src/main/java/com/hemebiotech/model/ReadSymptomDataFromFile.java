@@ -35,5 +35,4 @@ public class ReadSymptomDataFromFile implements SymptomReader {
         }
         return result;
     }
-
 }
