@@ -1,10 +1,9 @@
 package com.hemebiotech.fileAccessObject;
 
-import com.hemebiotech.model.SymptomReader;
+import com.hemebiotech.controller.SymptomReader;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -15,34 +14,18 @@ import java.util.stream.Collectors;
 public class GetWriteSymptomsOccurrence {
     /**
      * obtain and write down the onset of symptoms
+     *
      * @param symptomReader
      * @throws IOException
      */
     public static void getAndWriteSymptomsOccurrence(SymptomReader symptomReader) {
         List<String> symptomsList = symptomReader.getSymptoms("symptoms.txt");
 
-        Map<String, Integer> occurrenceMap = convertToOccurrenceMap(symptomsList);
+        Map<String, Integer> occurrenceMap = ConvertMapOccurrences.convertToOccurrenceMap(symptomsList);
 
         List<String> occurrenceSymptomList = getOccurrenceSymptomList(occurrenceMap);
 
         WriteOccurrenceFile(occurrenceSymptomList);
-    }
-
-    /**
-     * convert to Map of occurrences
-     * @param symptomsList
-     * @return
-     */
-    private static Map<String, Integer> convertToOccurrenceMap(List<String> symptomsList) {
-        Map<String, Integer> occurrenceMap = new HashMap<>();
-        symptomsList.forEach(symptom -> {
-            if (occurrenceMap.containsKey(symptom)) {
-                occurrenceMap.put(symptom, occurrenceMap.get(symptom) + 1);
-            } else {
-                occurrenceMap.put(symptom, 1);
-            }
-        });
-        return occurrenceMap;
     }
 
     /**

@@ -1,4 +1,4 @@
-package com.hemebiotech.model;
+package com.hemebiotech.controller;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
