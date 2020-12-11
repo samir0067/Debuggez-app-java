@@ -10,9 +10,8 @@ public class WriteOccurrenceFile {
      *
      * @param occurrenceSymptomList
      * @throws IOException
-     * @return
      */
-    protected static List<String> WriteOccurrence(List<String> occurrenceSymptomList) throws IOException {
+    protected static void WriteOccurrence(List<String> occurrenceSymptomList) throws IOException {
         FileWriter writer = new FileWriter("result.out");
         try {
             for (String entry : occurrenceSymptomList) {
@@ -22,6 +21,5 @@ public class WriteOccurrenceFile {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return occurrenceSymptomList;
     }
 }
