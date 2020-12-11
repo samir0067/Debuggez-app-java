@@ -1,42 +1,13 @@
 package com.hemebiotech;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
+import com.hemebiotech.fileAccessObject.GetWriteSymptomsOccurrence;
+import com.hemebiotech.model.SymptomReader;
+import com.hemebiotech.model.SymptomReaderImpl;
 
 public class AnalyticsCounter {
-	private static int headacheCount = 0;
-	private static int rashCount = 0;
-	private static int pupilCount = 0;
-	
-	public static void main(String args[]) throws Exception {
+    public static void main(String[] args) {
 
-		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
-		String line = reader.readLine();
-
-		int i = 0;
-		int headCount = 0;
-		while (line != null) {
-			i++;
-			System.out.println("symptom from file: " + line);
-			if (line.equals("headache")) {
-				headCount++;
-				System.out.println("number of headaches: " + headCount);
-			}
-			else if (line.equals("rush")) {
-				rashCount++;
-			}
-			else if (line.contains("pupils")) {
-				pupilCount++;
-			}
-
-			line = reader.readLine();
-		}
-
-		FileWriter writer = new FileWriter ("result.out");
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
-		writer.close();
-	}
+        SymptomReader symptomReader = new SymptomReaderImpl();
+        GetWriteSymptomsOccurrence.getAndWriteSymptomsOccurrence(symptomReader);
+    }
 }

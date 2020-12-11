@@ -6,34 +6,33 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReadSymptomDataFromFile implements ISymptomReader {
+/**
+ * Simple brute force implementation
+ */
+public class ReadSymptomDataFromFile implements SymptomReader {
 
-	private String filepath;
+    /**
+     * @param filepath
+     * @return
+     */
+    @Override
+    public List<String> getSymptoms(String filepath) {
+        var result = new ArrayList<String>();
 
-	public ReadSymptomDataFromFile (String filepath) {
-		this.filepath = filepath;
-	}
-	
-	@Override
-	public List<String> GetSymptoms() {
-		ArrayList<String> result = new ArrayList<String>();
-		
-		if (filepath != null) {
-			try {
-				BufferedReader reader = new BufferedReader (new FileReader(filepath));
-				String line = reader.readLine();
-				
-				while (line != null) {
-					result.add(line);
-					line = reader.readLine();
-				}
-				reader.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		
-		return result;
-	}
+        if (filepath != null) {
+            try {
+                var reader = new BufferedReader(new FileReader(filepath));
+                var line = reader.readLine();
 
+                while (line != null) {
+                    result.add(line);
+                    line = reader.readLine();
+                }
+                reader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return result;
+    }
 }
