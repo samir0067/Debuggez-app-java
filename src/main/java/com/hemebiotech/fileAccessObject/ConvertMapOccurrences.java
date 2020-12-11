@@ -10,7 +10,7 @@ public class ConvertMapOccurrences {
      * @param symptomsList
      * @return
      */
-    public static Map<String, Integer> convertToOccurrenceMap(List<String> symptomsList) {
+    protected static Map<String, Integer> convertToOccurrenceMap(List<String> symptomsList) {
         Map<String, Integer> occurrenceMap = new HashMap<>();
         symptomsList.forEach(symptom -> {
             if (occurrenceMap.containsKey(symptom)) {
