@@ -1,15 +1,19 @@
 package com.hemebiotech;
 
-import com.hemebiotech.fileAccessObject.GetWriteSymptomsOccurrence;
-import com.hemebiotech.controller.SymptomReader;
-import com.hemebiotech.controller.SymptomReaderImpl;
+import com.hemebiotech.business.*;
 
 import java.io.IOException;
 
+/**
+ * @author Samir
+ */
 public class AnalyticsCounter {
     public static void main(String[] args) throws IOException {
 
-        SymptomReader symptomReader = new SymptomReaderImpl();
-        GetWriteSymptomsOccurrence.getAndWriteSymptomsOccurrence(symptomReader);
+        SymptomReader symptomReader = new SymptomFileReader();
+        SymptomWriter symptomWriter = new SymptomFileWriter();
+        SymptomsBusiness symptomsBusiness = new SymptomsBusiness(symptomReader, symptomWriter);
+        symptomsBusiness.getOccurences();
+        symptomsBusiness.writeOccurences("result.out");
     }
 }

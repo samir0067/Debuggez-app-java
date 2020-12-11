@@ -1,5 +1,7 @@
 package com.hemebiotech.controller;
 
+import com.hemebiotech.business.SymptomReader;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
