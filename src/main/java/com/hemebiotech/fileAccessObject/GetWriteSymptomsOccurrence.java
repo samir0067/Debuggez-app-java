@@ -10,11 +10,11 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * obtenir Écrire Symptômes Occurrence
+ * obtain from a file and write Symptoms Occurrence
  */
 public class GetWriteSymptomsOccurrence {
     /**
-     * obtenir et écrire l'apparition des symptômes
+     * obtain and write down the onset of symptoms
      * @param symptomReader
      * @throws IOException
      */
@@ -29,8 +29,7 @@ public class GetWriteSymptomsOccurrence {
     }
 
     /**
-     * convertir en Map d'occurrences
-     *
+     * convert to Map of occurrences
      * @param symptomsList
      * @return
      */
@@ -47,7 +46,7 @@ public class GetWriteSymptomsOccurrence {
     }
 
     /**
-     * obtenir la liste des symptômes
+     * get a list of symptoms
      *
      * @param occurrenceMap
      * @return
@@ -63,7 +62,7 @@ public class GetWriteSymptomsOccurrence {
     }
 
     /**
-     * Rédiger un fichier d'événement
+     * Writing an occurrence file
      *
      * @param occurrenceSymptomList
      * @throws IOException
