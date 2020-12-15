@@ -6,7 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * obtain from a file and write Symptoms Occurrence
+ * read the data from a text file and count all occurrences of any symptom listed in the file generate a new file that lists each symptom
+ * in alphabetical order, followed by the number of hits in the file
  */
 public class SymptomsBusiness {
 
@@ -27,7 +28,7 @@ public class SymptomsBusiness {
     }
 
     /**
-     * to get the occurrences
+     * Obtain from a file and write symptoms occurrence
      */
     public void getOccurrences() {
         this.symptomsList = this.symptomReader.getSymptoms("symptoms.txt");

@@ -12,7 +12,6 @@ import java.util.stream.Collectors;
 
 public class SymptomFileReader implements SymptomReader {
 
-
     /**
      * getting Symptoms
      * @param filepath
