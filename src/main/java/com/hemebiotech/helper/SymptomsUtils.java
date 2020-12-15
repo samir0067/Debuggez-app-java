@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 public class SymptomsUtils {
 
     /**
+     * convert To Occurrence Map
      * @param symptomsList
      * @return
      */

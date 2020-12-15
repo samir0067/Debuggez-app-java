@@ -13,7 +13,6 @@ public class SymptomsBusiness {
 
     private final SymptomReader symptomReader;
     private final SymptomWriter symptomWriter;
-    private List<String> symptomsList;
     private List<String> occurrenceSymptomList;
 
     /**
@@ -31,7 +30,7 @@ public class SymptomsBusiness {
      * Obtain from a file and write symptoms occurrence
      */
     public void getOccurrences() {
-        this.symptomsList = this.symptomReader.getSymptoms("symptoms.txt");
+        List<String> symptomsList = this.symptomReader.getSymptoms("symptoms.txt");
 
         Map<String, Integer> occurrenceMap = SymptomsUtils.convertToOccurrenceMap(symptomsList);
 
