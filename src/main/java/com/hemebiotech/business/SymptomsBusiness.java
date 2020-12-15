@@ -15,12 +15,20 @@ public class SymptomsBusiness {
     private List<String> symptomsList;
     private List<String> occurrenceSymptomList;
 
+    /**
+     * Constructors
+     * @param symptomReader
+     * @param symptomWriter
+     */
     public SymptomsBusiness(SymptomReader symptomReader, SymptomWriter symptomWriter) {
 
         this.symptomReader = symptomReader;
         this.symptomWriter = symptomWriter;
     }
 
+    /**
+     * to get the occurrences
+     */
     public void getOccurrences() {
         this.symptomsList = this.symptomReader.getSymptoms("symptoms.txt");
 
