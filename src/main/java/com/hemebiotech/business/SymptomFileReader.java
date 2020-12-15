@@ -1,4 +1,4 @@
-package com.hemebiotech.model;
+package com.hemebiotech.business;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
-public class SymptomReaderImpl implements SymptomReader {
+public class SymptomFileReader implements SymptomReader {
 
 
     /**
