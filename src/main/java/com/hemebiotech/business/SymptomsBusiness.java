@@ -21,18 +21,18 @@ public class SymptomsBusiness {
         this.symptomWriter = symptomWriter;
     }
 
-    /**
-     * obtain and write down the onset of symptoms
-     */
-    public void getOccurences() {
+    public void getOccurrences() {
         this.symptomsList = this.symptomReader.getSymptoms("symptoms.txt");
 
         Map<String, Integer> occurrenceMap = SymptomsUtils.convertToOccurrenceMap(symptomsList);
 
-        this.occurrenceSymptomList = SymptomsUtils.occurenceMapToList(occurrenceMap);
+        this.occurrenceSymptomList = SymptomsUtils.occurenceMapSortingToList(occurrenceMap);
     }
 
-    public void writeOccurences(String fileName) {
-        this.symptomWriter.writeOccurences(this.occurrenceSymptomList, fileName);
+    /**
+     * @param fileName
+     */
+    public void writeOccurrences(String fileName) {
+        this.symptomWriter.writeOccurrences(this.occurrenceSymptomList, fileName);
     }
 }

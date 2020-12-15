@@ -4,5 +4,10 @@ import java.util.List;
 
 public interface SymptomWriter {
 
-    void writeOccurences(List<String> occurrenceSymptomList, String fileName);
+    /**
+     * Written a list of all symptoms from a data source into a file
+     * @param occurrenceSymptomList
+     * @param fileName
+     */
+    void writeOccurrences(List<String> occurrenceSymptomList, String fileName);
 }
