@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
+ * test
  * Writes a occurrence file
  * @author samir
  */
