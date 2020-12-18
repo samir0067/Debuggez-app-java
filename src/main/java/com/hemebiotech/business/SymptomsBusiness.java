@@ -13,34 +13,30 @@ public class SymptomsBusiness {
 
     private final SymptomReader symptomReader;
     private final SymptomWriter symptomWriter;
-    private List<String> occurrenceSymptomList;
 
     /**
      * Constructors
-     * @param symptomReader
-     * @param symptomWriter
      */
-    public SymptomsBusiness(SymptomReader symptomReader, SymptomWriter symptomWriter) {
-
-        this.symptomReader = symptomReader;
-        this.symptomWriter = symptomWriter;
+    public SymptomsBusiness() {
+        this.symptomReader = new SymptomFileReader();
+        this.symptomWriter = new SymptomFileWriter();
     }
 
     /**
      * Obtain from a file and write symptoms occurrence
      */
-    public void getOccurrences() {
-        List<String> symptomsList = this.symptomReader.getSymptoms("symptoms.txt");
+    public List<String> getOccurrences() {
+        List<String> symptomsList = symptomReader.getSymptoms("symptoms.txt");
 
         Map<String, Integer> occurrenceMap = SymptomsUtils.convertToOccurrenceMap(symptomsList);
 
-        this.occurrenceSymptomList = SymptomsUtils.occurenceMapSortingToList(occurrenceMap);
+        return SymptomsUtils.occurenceMapSortingToList(occurrenceMap);
     }
 
     /**
      * @param fileName
      */
-    public void writeOccurrences(String fileName) {
-        this.symptomWriter.writeOccurrences(this.occurrenceSymptomList, fileName);
+    public void writeOccurrences(String fileName, List<String> symptoms) {
+        symptomWriter.writeOccurrences(symptoms, fileName);
     }
 }
