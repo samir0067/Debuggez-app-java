@@ -24,6 +24,7 @@ public class SymptomsBusiness {
 
     /**
      * Obtain from a file and write symptoms occurrence
+     * @return the list of symptoms get from file
      */
     public List<String> getOccurrences() {
         List<String> symptomsList = symptomReader.getSymptoms("symptoms.txt");

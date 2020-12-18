@@ -14,7 +14,7 @@ public class SymptomsUtils {
     /**
      * convert To Occurrence Map
      * @param symptomsList
-     * @return
+     * @return listing occurrences
      */
     public static Map<String, Integer> convertToOccurrenceMap(List<String> symptomsList) {
         Map<String, Integer> occurrenceMap = new HashMap<>();
@@ -30,7 +30,7 @@ public class SymptomsUtils {
 
     /**
      * @param occurrenceMap
-     * @return
+     * @return List of symptoms strings in order
      */
     public static List<String> occurenceMapSortingToList(Map<String, Integer> occurrenceMap) {
         List<String> occurrenceSymptomList = occurrenceMap

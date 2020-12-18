@@ -15,7 +15,7 @@ public class SymptomFileReader implements SymptomReader {
     /**
      * getting Symptoms
      * @param filepath
-     * @return
+     * @return result symptoms list
      */
     @Override
     public List<String> getSymptoms(String filepath) {
