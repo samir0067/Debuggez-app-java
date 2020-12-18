@@ -2,16 +2,19 @@ package com.hemebiotech;
 
 import com.hemebiotech.business.*;
 
+import java.util.List;
+
 /**
  * @author Samir
  */
 public class AnalyticsCounter {
+    /**
+     * @param args
+     */
     public static void main(String[] args) {
 
-        SymptomReader symptomReader = new SymptomFileReader();
-        SymptomWriter symptomWriter = new SymptomFileWriter();
-        SymptomsBusiness symptomsBusiness = new SymptomsBusiness(symptomReader, symptomWriter);
-        symptomsBusiness.getOccurrences();
-        symptomsBusiness.writeOccurrences("results.out");
+        SymptomsBusiness symptomsBusiness = new SymptomsBusiness();
+        List<String> symptoms = symptomsBusiness.getOccurrences();
+        symptomsBusiness.writeOccurrences(symptoms, "results.out");
     }
 }
