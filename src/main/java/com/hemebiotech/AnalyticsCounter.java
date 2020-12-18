@@ -8,10 +8,13 @@ import java.util.List;
  * @author Samir
  */
 public class AnalyticsCounter {
+    /**
+     * @param args
+     */
     public static void main(String[] args) {
 
         SymptomsBusiness symptomsBusiness = new SymptomsBusiness();
         List<String> symptoms = symptomsBusiness.getOccurrences();
-        symptomsBusiness.writeOccurrences("results.out", symptoms);
+        symptomsBusiness.writeOccurrences(symptoms, "results.out");
     }
 }

@@ -34,9 +34,11 @@ public class SymptomsBusiness {
     }
 
     /**
+     * Allows you to write the Occurrences in a file
+     * @param symptoms
      * @param fileName
      */
-    public void writeOccurrences(String fileName, List<String> symptoms) {
+    public void writeOccurrences(List<String> symptoms, String fileName) {
         symptomWriter.writeOccurrences(symptoms, fileName);
     }
 }
